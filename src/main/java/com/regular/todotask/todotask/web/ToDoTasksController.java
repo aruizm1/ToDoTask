@@ -40,9 +40,9 @@ public class ToDoTasksController {
         return new ResponseEntity<>(HttpStatus.CREATED);
     }
 
-    @PutMapping("/{id}")
-    public ResponseEntity<String> updateTask(@PathVariable Long id,@RequestBody ToDoTask task){
-        service.updateToDoTask(id,task);
+    @PutMapping("/update-task")
+    public ResponseEntity<String> updateTask(@RequestBody ToDoTask task){
+        service.updateToDoTask(task);
         return new ResponseEntity<>(HttpStatus.CREATED);
     }
 }

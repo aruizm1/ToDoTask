@@ -35,5 +35,17 @@ public class ToDoTasksService {
         repository.saveAndFlush(task);
     }
 
+    @Transactional
+    public void updateToDoTask(Long id, ToDoTask task){
+        Optional<ToDoTask> todotask = repository.findById(id);
+        ToDoTask tempTask = todotask.get();
+        tempTask.setCategory(task.getCategory());
+        tempTask.setCreateDate(task.getCreateDate());
+        tempTask.setDescription(task.getDescription());
+        tempTask.setStatus(task.getStatus());
+        repository.saveAndFlush(tempTask);
+
+    }
+
 }
 

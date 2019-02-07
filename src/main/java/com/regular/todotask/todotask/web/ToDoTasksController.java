@@ -34,7 +34,7 @@ public class ToDoTasksController {
         return service.findTaskByStatus(status);
     }
 
-    @PostMapping("/register-task/task")
+    @PostMapping("/register-task")
     public ResponseEntity<String> registerTask(@RequestBody ToDoTask task){
         service.saveToDoTask(task);
         return new ResponseEntity<>(HttpStatus.CREATED);
@@ -44,5 +44,10 @@ public class ToDoTasksController {
     public ResponseEntity<String> updateTask(@RequestBody ToDoTask task){
         service.updateToDoTask(task);
         return new ResponseEntity<>(HttpStatus.CREATED);
+    }
+
+    @GetMapping("/find-category")
+    public List<ToDoTask>findByCategory(@RequestParam String category){
+        return service.findByCategory(category);
     }
 }

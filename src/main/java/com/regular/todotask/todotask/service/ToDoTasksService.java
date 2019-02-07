@@ -43,5 +43,10 @@ public class ToDoTasksService {
         repository.saveAndFlush(task);
     }
 
+    @Transactional(readOnly = true)
+    public  List<ToDoTask> findByCategory(String category){
+        return repository.findByCategory(category);
+    }
+
 }
 

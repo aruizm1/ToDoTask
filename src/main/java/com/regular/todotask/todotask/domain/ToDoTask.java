@@ -1,8 +1,11 @@
 package com.regular.todotask.todotask.domain;
 
 import javax.persistence.*;
+import java.util.HashSet;
+import java.util.Set;
 
 @Entity
+@Table(name = "todoProject")
 public class ToDoTask {
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
@@ -12,6 +15,11 @@ public class ToDoTask {
     private String description;
     private String status;
     private String createDate;
+
+
+
+    @OneToMany
+    private Set<SubTask> subTasks = new HashSet<>();
 
     public Long getId() {
         return id;

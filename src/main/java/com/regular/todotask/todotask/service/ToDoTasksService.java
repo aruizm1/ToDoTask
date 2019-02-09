@@ -1,5 +1,6 @@
 package com.regular.todotask.todotask.service;
 
+import com.regular.todotask.todotask.domain.SubTask;
 import com.regular.todotask.todotask.domain.ToDoTask;
 import com.regular.todotask.todotask.repository.ToDoTasksRepository;
 import org.springframework.stereotype.Service;
@@ -47,6 +48,7 @@ public class ToDoTasksService {
     public  List<ToDoTask> findByCategory(String category){
         return repository.findByCategory(category);
     }
+
 
 }
 

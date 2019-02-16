@@ -1,7 +1,8 @@
 package com.regular.todotask.todotask.domain;
 
-import javafx.concurrent.Task;
+import com.fasterxml.jackson.annotation.JsonIgnore;
 import org.hibernate.annotations.CacheConcurrencyStrategy;
+import org.hibernate.annotations.Cache;
 
 import javax.persistence.*;
 import java.util.HashSet;
@@ -16,11 +17,9 @@ public class Tag {
     private Long id;
     private String name;
 
-    @ManyToMany
-    @org.hibernate.annotations.Cache(usage = CacheConcurrencyStrategy.NONSTRICT_READ_WRITE)
-    @JoinTable(name = "SubTask",
-            joinColumns = @JoinColumn(name = "id", referencedColumnName = "id"),
-            inverseJoinColumns = @JoinColumn(name = "id", referencedColumnName = "id"))
+    @ManyToMany(mappedBy = "tags")
+    @Cache(usage = CacheConcurrencyStrategy.NONSTRICT_READ_WRITE)
+    @JsonIgnore
     private Set<SubTask> subtasks = new HashSet<>();
 
     public Long getId() {

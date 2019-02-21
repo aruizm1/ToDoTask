@@ -33,6 +33,14 @@ public class SubTask {
         this.id = id;
     }
 
+    public String getName() {
+        return name;
+    }
+
+    public void setName(String name) {
+        this.name = name;
+    }
+
     public String getStatus() {
         return status;
     }
@@ -41,11 +49,19 @@ public class SubTask {
         this.status = status;
     }
 
-    public String getname() {
-        return name;
+    public Set<Tag> getTags() {
+        return tags;
     }
 
-    public void setname(String name) {
-        this.name = name;
+    public void setTags(Set<Tag> tags) {
+        this.tags = tags;
+    }
+
+    public ToDoTask getToDoTask() {
+        return toDoTask;
+    }
+
+    public void setToDoTask(ToDoTask toDoTask) {
+        this.toDoTask = toDoTask;
     }
 }

@@ -21,6 +21,14 @@ public class ToDoTask {
     @OneToMany
     private Set<SubTask> subTasks = new HashSet<>();
 
+    public Set<SubTask> getSubTasks() {
+        return subTasks;
+    }
+
+    public void setSubTasks(Set<SubTask> subTasks) {
+        this.subTasks = subTasks;
+    }
+
     public Long getId() {
         return id;
     }

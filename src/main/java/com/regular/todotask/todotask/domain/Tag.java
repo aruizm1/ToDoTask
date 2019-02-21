@@ -22,6 +22,14 @@ public class Tag {
     @JsonIgnore
     private Set<SubTask> subtasks = new HashSet<>();
 
+    public Set<SubTask> getSubtasks() {
+        return subtasks;
+    }
+
+    public void setSubtasks(Set<SubTask> subtasks) {
+        this.subtasks = subtasks;
+    }
+
     public Long getId() {
         return id;
     }
